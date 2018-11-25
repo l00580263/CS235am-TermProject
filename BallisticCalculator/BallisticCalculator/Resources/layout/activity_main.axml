@@ -22,7 +22,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/speedField"
-			android:hint="enter speed" />
+			android:hint="enter speed"
+			android:inputType="numberDecimal" />
 		<TextView
 			android:text="Target Distance X (m)"
 			android:textAppearance="?android:attr/textAppearanceMedium"
@@ -34,7 +35,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/distanceField"
-			android:hint="enter distance" />
+			android:hint="enter distance"
+			android:inputType="none|numberDecimal" />
 		<TextView
 			android:text="Target elevation Y (m)"
 			android:textAppearance="?android:attr/textAppearanceMedium"
@@ -46,7 +48,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/elevationField"
-			android:hint="enter elevation" />
+			android:hint="enter elevation"
+			android:inputType="none|numberDecimal" />
 		<TextView
 			android:text="Zero At (m)"
 			android:textAppearance="?android:attr/textAppearanceMedium"
@@ -58,12 +61,14 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/zeroField"
-			android:hint="enter zero" />
+			android:hint="enter zero"
+			android:inputType="none|numberDecimal" />
 		<ProgressBar
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/progressBar"
-			android:layout_marginTop="20.5dp"  />
+			android:layout_marginTop="20.5dp"
+			style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal" />
 		<TextView
 			android:text="Hold __ (cm) Over"
 			android:textAppearance="?android:attr/textAppearanceLarge"
@@ -84,7 +89,7 @@
 			android:text="Get Trajectory Data"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/button1"
+			android:id="@+id/dataButton"
 			android:layout_marginTop="16.5dp"  />
 	</LinearLayout>
 </ScrollView>

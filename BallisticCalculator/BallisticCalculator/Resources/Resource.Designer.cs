@@ -2429,9 +2429,6 @@ namespace BallisticCalculator
 			// aapt resource value: 0x7f08003d
 			public const int bottom = 2131230781;
 			
-			// aapt resource value: 0x7f080097
-			public const int button1 = 2131230871;
-			
 			// aapt resource value: 0x7f080063
 			public const int buttonPanel = 2131230819;
 			
@@ -2476,6 +2473,9 @@ namespace BallisticCalculator
 			
 			// aapt resource value: 0x7f08006c
 			public const int customPanel = 2131230828;
+			
+			// aapt resource value: 0x7f080097
+			public const int dataButton = 2131230871;
 			
 			// aapt resource value: 0x7f08007a
 			public const int decor_content_parent = 2131230842;
