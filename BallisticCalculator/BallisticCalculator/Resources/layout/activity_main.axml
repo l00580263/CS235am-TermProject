@@ -1,7 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-</RelativeLayout>
+	<LinearLayout
+		android:orientation="vertical"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/linearLayout">
+		<TextView
+			android:text="Projectile Speed (m/s)"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/speedLabel"
+			android:textAlignment="center" />
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/speedField"
+			android:hint="enter speed" />
+		<TextView
+			android:text="Target Distance X (m)"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/distanceLabel"
+			android:textAlignment="center" />
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/distanceField"
+			android:hint="enter distance" />
+		<TextView
+			android:text="Target elevation Y (m)"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/elevationLabel"
+			android:textAlignment="center" />
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/elevationField"
+			android:hint="enter elevation" />
+		<TextView
+			android:text="Zero At (m)"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/zeroLabel"
+			android:textAlignment="center" />
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/zeroField"
+			android:hint="enter zero" />
+		<ProgressBar
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/progressBar"
+			android:layout_marginTop="20.5dp"  />
+		<TextView
+			android:text="Hold __ (cm) Over"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/holdLabel"
+			android:textAlignment="center"
+			android:layout_marginTop="14.5dp"  />
+		<TextView
+			android:text="__ (s) Flight Time"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/flightLabel"
+			android:textAlignment="center"
+			android:layout_marginTop="14.0dp"  />
+		<Button
+			android:text="Get Trajectory Data"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/button1"
+			android:layout_marginTop="16.5dp"  />
+	</LinearLayout>
+</ScrollView>
