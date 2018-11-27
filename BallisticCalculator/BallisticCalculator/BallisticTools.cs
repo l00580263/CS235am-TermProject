@@ -35,7 +35,7 @@ namespace BallisticCalculator
 
 
 
-        public static double GetHold(float angle, float speed, float x, float zero)
+        public static double GetHold(float angle, float speed, float x, float y, float zero)
         {
             // get angle from sights to barrel
             float sightsAngle = GetLaunchAngle(speed, zero, 0);
@@ -43,8 +43,14 @@ namespace BallisticCalculator
             // get real angle
             float realAngle = angle - sightsAngle;
 
+            // get height from 0
+            var h = Math.Tan(realAngle) * x;
+
+            // get direction from target to hold
+            var d = h - y;
+
             // get hold over
-            return Math.Tan(realAngle) * x;
+            return d;
         }
 
 

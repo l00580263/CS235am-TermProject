@@ -49,7 +49,7 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/elevationField"
 			android:hint="enter elevation"
-			android:inputType="none|numberDecimal" />
+			android:inputType="none|numberDecimal|numberSigned" />
 		<TextView
 			android:text="Zero At (m)"
 			android:textAppearance="?android:attr/textAppearanceMedium"

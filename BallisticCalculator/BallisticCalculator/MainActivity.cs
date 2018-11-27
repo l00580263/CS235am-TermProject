@@ -101,7 +101,7 @@ namespace BallisticCalculator
                 // get launch angle
                 angle = BallisticTools.GetLaunchAngle(speed, x, y);
                 // get hold
-                double hold = BallisticTools.GetHold(angle, speed, x, zero);
+                double hold = BallisticTools.GetHold(angle, speed, x, y, zero);
                 // display hold
                 holdLabel.Text = string.Format("Hold {0} (m) Over", hold.ToString("n2"));
 
