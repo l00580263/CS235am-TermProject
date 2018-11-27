@@ -12,6 +12,9 @@ namespace BallisticCalculator
     public class MainActivity : AppCompatActivity
     {
 
+        const string SAVE_HOLD_KEY = "holdValue";
+        const string SAVE_FLIGHT_TIME_KEY = "flightTimeValue";
+
         EditText speedField;
         EditText xField;
         EditText yField;
@@ -51,6 +54,12 @@ namespace BallisticCalculator
             timeLabel = FindViewById<TextView>(Resource.Id.flightLabel);
 
             dataButton = FindViewById<Button>(Resource.Id.dataButton);
+
+            // load saved bundle
+            if (savedInstanceState != null)
+            {
+                SetUp(savedInstanceState);
+            }
 
             // set up events
             speedField.TextChanged += NewData;
@@ -126,6 +135,28 @@ namespace BallisticCalculator
 
             // next activity
             StartActivity(intent);
+        }
+
+
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            // save info
+            outState.PutString(SAVE_HOLD_KEY, holdLabel.Text);
+            outState.PutString(SAVE_FLIGHT_TIME_KEY, timeLabel.Text);
+
+
+            // give bundle
+            base.OnSaveInstanceState(outState);
+        }
+
+
+
+        void SetUp(Bundle inState)
+        {
+            // assign saved text to labels
+            holdLabel.Text = inState.GetString(SAVE_HOLD_KEY, "");
+            timeLabel.Text = inState.GetString(SAVE_FLIGHT_TIME_KEY, "");
         }
 
     }

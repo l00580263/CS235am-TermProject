@@ -22,7 +22,7 @@ namespace BallisticCalculator
         public static float GetLaunchAngle(float speed, float x, float y)
         {
             // angle to hit self should return zero
-            if (x <= 0)
+            if (x <= 0 && y <= 0)
             {
                 return 0;
             }
