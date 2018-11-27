@@ -15,17 +15,20 @@ namespace BallisticCalculator
     public static class BallisticTools
     {
 
-
+        public const float GRAVITY = 9.81f;
 
 
 
         public static float GetLaunchAngle(float speed, float x, float y)
         {
-            // define gravity
-            float g = 9.81f;
+            // angle to hit self should return zero
+            if (x <= 0)
+            {
+                return 0;
+            }
 
             // get angle in radians
-            float angle = (float)Math.Atan((Math.Pow(speed, 2) - Math.Sqrt(Math.Pow(speed, 4) - g * (g * Math.Pow(x, 2) + 2 * y * Math.Pow(speed, 2)))) / (g * x));
+            float angle = (float)Math.Atan((Math.Pow(speed, 2) - Math.Sqrt(Math.Pow(speed, 4) - GRAVITY * (GRAVITY * Math.Pow(x, 2) + 2 * y * Math.Pow(speed, 2)))) / (GRAVITY * x));
 
             return angle;
         }
@@ -48,12 +51,21 @@ namespace BallisticCalculator
 
         public static float GetFlightTime(float angle, float speed, float x)
         {
-            // angle is in radians
-
             // distance 
-            float xSpeed = (speed * (float)Math.Cos(angle));
+            float xSpeed = speed * (float)Math.Cos(angle);
             // get time
             return x / xSpeed;
+        }
+
+
+
+        public static float GetElevationAtDistance(float speed, float x, float angle)
+        {
+            // get time in terms of distance x
+            double t = x / (speed * Math.Cos(angle));
+
+            // calculate elevation
+            return (float) (-GRAVITY * .5f * Math.Pow(t, 2) + speed * Math.Sin(angle) * t);
         }
     }
 }

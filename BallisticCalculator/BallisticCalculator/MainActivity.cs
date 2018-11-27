@@ -4,10 +4,11 @@ using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
 using Android.Text;
+using Android.Content;
 
 namespace BallisticCalculator
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleInstance)]
     public class MainActivity : AppCompatActivity
     {
 
@@ -21,6 +22,14 @@ namespace BallisticCalculator
         TextView timeLabel;
 
         Button dataButton;
+
+        float speed;
+        float x;
+        float y;
+        float zero;
+
+        float angle;
+
 
 
 
@@ -48,19 +57,18 @@ namespace BallisticCalculator
             xField.TextChanged += NewData;
             yField.TextChanged += NewData;
             zeroField.TextChanged += NewData;
+
+            dataButton.Click += GoToDataListView;
         }
 
 
 
         void NewData(object sender, TextChangedEventArgs e)
         {
-            float speed;
+            // get input
             bool tp1 = float.TryParse(speedField.Text, out speed);
-            float x;
             bool tp2 = float.TryParse(xField.Text, out x);
-            float y;
             bool tp3 = float.TryParse(yField.Text, out y);
-            float zero;
             bool tp4 = float.TryParse(zeroField.Text, out zero);
 
             // put in array
@@ -81,9 +89,8 @@ namespace BallisticCalculator
             // try to calculate
             if (progressBar.Progress == 100)
             {
-
                 // get launch angle
-                float angle = BallisticTools.GetLaunchAngle(speed, x, y);
+                angle = BallisticTools.GetLaunchAngle(speed, x, y);
                 // get hold
                 double hold = BallisticTools.GetHold(angle, speed, x, zero);
                 // display hold
@@ -96,5 +103,30 @@ namespace BallisticCalculator
             }
             
         }
+
+
+
+        void GoToDataListView(object sender, System.EventArgs e)
+        {
+            // check for input
+            if (progressBar.Progress != 100)
+            {
+                // not all input exists, abort
+                Toast.MakeText(this, "Not All Data Has Been Entered", ToastLength.Short).Show();
+                return;
+            }
+
+            // new intent
+            var intent = new Intent(this, typeof(ListDisplayActivity));
+
+            // add extras
+            intent.PutExtra(ListDisplayActivity.SPEED_KEY, speed);
+            intent.PutExtra(ListDisplayActivity.DISTANCE_KEY, x);
+            intent.PutExtra(ListDisplayActivity.ANGLE_KEY, angle);
+
+            // next activity
+            StartActivity(intent);
+        }
+
     }
 }
